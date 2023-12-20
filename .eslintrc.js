@@ -14,15 +14,20 @@ module.exports = {
     },
   },
   plugins: ['ember'],
-  extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:ember/recommended'],
   env: {
     browser: true,
   },
-  rules: {},
+  rules: {
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true,
+      },
+    ],
+  },
   overrides: [
     // node files
     {
